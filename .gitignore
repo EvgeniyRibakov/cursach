@@ -1,0 +1,15 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtual Environment
+.venv/
+
+# Environment variables
+.env
+
+# PyCharm
+.idea/
+
+# Miscellaneous
+.DS_Store
