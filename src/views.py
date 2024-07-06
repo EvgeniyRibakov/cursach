@@ -1,31 +1,32 @@
-import json
 import logging
-from datetime import datetime
+import json
+from src.helpers import convert_to_datetime
 from typing import Any, Dict, List
-
 import pandas as pd
+from datetime import datetime
 
-from src.utils import (
-    convert_to_datetime,
-    dataframe_to_json,
-    fetch_data_from_api,
-    read_xlsx,
-    welcome_message,
-    write_json,
-)
 
-logger = logging.getLogger("main_logger")
+# Локальный импорт для предотвращения циклических импортов
+def get_utils():
+    from src.utils import (
+        read_xlsx,
+        welcome_message,
+        write_json,
+    )
+    return read_xlsx, welcome_message, write_json
+
+
+read_xlsx, welcome_message, write_json = get_utils()
+
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler("main.log")
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-#2021-12-30 19:06:39
+
 def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """
-    Эта функция обрабатывает данные о картах из списка транзакций.
-    """
     card_data = {}
 
     for operation in operations:
@@ -38,7 +39,7 @@ def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             logger.warning(f"Пропущена операция без номера карты: {operation}")
             continue
 
-        if isinstance(card_number, str):  # Убираем проверку на startswith('*')
+        if isinstance(card_number, str):
             last_digits = card_number[-4:]
             if last_digits not in card_data:
                 card_data[last_digits] = {"last_digits": last_digits, "total_spent": 0.0, "cashback": 0.0}
@@ -56,34 +57,43 @@ def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return cards
 
 
-def index_page(data_time: str, transactions: List[Dict[str, Any]]) -> str:
-    """
-    Главная функция для генерации главной страницы.
-    """
-    logger.info("Запуск главной страницы")
-    greeting = welcome_message(data_time)
-    cards = card_data(transactions)
-    result = {"greeting": greeting, "cards": cards}
-    write_json("index_page.json", result)
-    return json.dumps(result, indent=2, ensure_ascii=False)
-
-
 def cashback(total_sum: int) -> int:
-    """
-    Возвращает весь кешбек
-    """
     result_cashback = total_sum // 100
     logger.info("Успешно! Результат - %s" % result_cashback)
     return result_cashback
 
 
+def filter_transactions_by_date(transactions, date_str):
+    # Преобразование строки даты в объект datetime
+    filter_date = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+
+    # Фильтрация транзакций по дате
+    filtered_transactions = []
+    for transaction in transactions:
+        # Преобразование даты операции в объект datetime
+        transaction_date_str = transaction.get("Дата операции")
+        if transaction_date_str:
+            transaction_date = datetime.strptime(transaction_date_str, "%d.%m.%Y %H:%M:%S")
+            if transaction_date <= filter_date:
+                filtered_transactions.append(transaction)
+    return filtered_transactions
+
+
+def index_page(data_time: str, transactions: List[Dict[str, Any]]) -> str:
+    logger.info("Запуск главной страницы")
+    greeting = welcome_message(data_time)
+    filtered_transactions = filter_transactions_by_date(transactions, data_time)
+    cards = card_data(filtered_transactions)
+    result = {"greeting": greeting, "cards": cards}
+    write_json("index_page.json", result)
+    return json.dumps(result, indent=2, ensure_ascii=False)
+
+
 def main() -> None:
-    """
-    Главная функция для запуска всей программы.
-    """
     logger.info("Запуск веб-страниц")
     transactions = read_xlsx("../data/operations.xls")
     logger.debug(f"Загруженные транзакции: {transactions}")
+
     user_data = input("Введите текущую дату и время в формате YYYY-MM-DD HH:MM:SS: ")
     logger.debug(f"Введенные данные: {user_data}")
     result = index_page(user_data, transactions)
