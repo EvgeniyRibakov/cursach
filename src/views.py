@@ -2,14 +2,16 @@ import json
 import logging
 from datetime import datetime
 from typing import Any, Dict, List
+
 import pandas as pd
+
 from src.utils import (
-    fetch_data_from_api,
     convert_to_datetime,
     dataframe_to_json,
+    fetch_data_from_api,
     read_xlsx,
+    welcome_message,
     write_json,
-    welcome_message
 )
 
 logger = logging.getLogger("main_logger")
@@ -19,14 +21,17 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-
+#2021-12-30 19:06:39
 def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Эта функция обрабатывает данные о картах из списка транзакций.
     """
     card_data = {}
+
     for operation in operations:
         card_number = operation.get("Номер карты")
+        cashback = operation.get("Бонусы (включая кэшбэк)")
+        logger.debug(f"Операция: {operation}")
         if card_number:
             logger.debug(f"Обработка транзакции с номером карты: {card_number}")
         else:
@@ -39,7 +44,10 @@ def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
                 card_data[last_digits] = {"last_digits": last_digits, "total_spent": 0.0, "cashback": 0.0}
             if operation["Сумма операции"] < 0:
                 card_data[last_digits]["total_spent"] += round(operation["Сумма операции"] * -1, 1)
-            card_data[last_digits]["cashback"] += operation.get("Бонусы (включая кэшбэк)", 0.0)
+            if cashback is not None:
+                card_data[last_digits]["cashback"] += cashback
+            else:
+                logger.debug(f"Кэшбэк отсутствует для операции: {operation}")
         else:
             logger.warning(f"Неверный формат номера карты: {card_number}")
 
@@ -59,13 +67,15 @@ def index_page(data_time: str, transactions: List[Dict[str, Any]]) -> str:
     write_json("index_page.json", result)
     return json.dumps(result, indent=2, ensure_ascii=False)
 
+
 def cashback(total_sum: int) -> int:
     """
     Возвращает весь кешбек
     """
-    result = total_sum // 100
+    result_cashback = total_sum // 100
     logger.info("Успешно! Результат - %s" % result_cashback)
     return result_cashback
+
 
 def main() -> None:
     """

@@ -1,7 +1,7 @@
+import datetime
 import json
 import logging
-import datetime
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 # --- Логирование модуля services ---
 services_logger = logging.getLogger("services")
@@ -31,11 +31,7 @@ def beneficial_cashback_categories(year: int, month: int, transactions: List[Dic
     """
     services_logger.debug(f"Запуск функции beneficial_cashback_categories с параметрами: year={year}, month={month}")
     # Здесь может быть логика определения выгодных категорий кешбэка
-    result = {
-        "year": year,
-        "month": month,
-        "categories": ["category1", "category2", "category3"]
-    }
+    result = {"year": year, "month": month, "categories": ["category1", "category2", "category3"]}
     services_logger.debug(f"Результат функции beneficial_cashback_categories: {result}")
     return json.dumps(result)
 
@@ -50,12 +46,9 @@ def invest_piggy_bank(month: int, transactions: List[Dict[str, Any]], rounding_l
     :return: JSON-ответ
     """
     services_logger.debug(
-        f"Запуск функции invest_piggy_bank с параметрами: month={month}, rounding_limit={rounding_limit}")
-    result = {
-        "month": month,
-        "rounding_limit": rounding_limit,
-        "saved_amount": 1234.56
-    }
+        f"Запуск функции invest_piggy_bank с параметрами: month={month}, rounding_limit={rounding_limit}"
+    )
+    result = {"month": month, "rounding_limit": rounding_limit, "saved_amount": 1234.56}
     services_logger.debug(f"Результат функции invest_piggy_bank: {result}")
     return json.dumps(result)
 
@@ -69,7 +62,7 @@ def simple_search(query: str, transactions: List[Dict[str, Any]]) -> str:
     :return: JSON-ответ
     """
     services_logger.debug(f"Запуск функции simple_search с параметром: query={query}")
-    filtered_transactions = [t for t in transactions if query.lower() in t.get('description', '').lower()]
+    filtered_transactions = [t for t in transactions if query.lower() in t.get("description", "").lower()]
     services_logger.debug(f"Результат функции simple_search: {filtered_transactions}")
     return json.dumps(filtered_transactions)
 
@@ -83,8 +76,9 @@ def phone_number_search(transactions: List[Dict[str, Any]]) -> str:
     """
     services_logger.debug("Запуск функции phone_number_search")
     import re
-    phone_pattern = re.compile(r'\+?\d{10,15}')
-    phone_transactions = [t for t in transactions if phone_pattern.search(t.get('description', ''))]
+
+    phone_pattern = re.compile(r"\+?\d{10,15}")
+    phone_transactions = [t for t in transactions if phone_pattern.search(t.get("description", ""))]
     services_logger.debug(f"Результат функции phone_number_search: {phone_transactions}")
     return json.dumps(phone_transactions)
 
@@ -98,7 +92,8 @@ def person_to_person_search(transactions: List[Dict[str, Any]]) -> str:
     """
     services_logger.debug("Запуск функции person_to_person_search")
     import re
-    person_pattern = re.compile(r'перевод физическому лицу', re.IGNORECASE)
-    person_transactions = [t for t in transactions if person_pattern.search(t.get('description', ''))]
+
+    person_pattern = re.compile(r"перевод физическому лицу", re.IGNORECASE)
+    person_transactions = [t for t in transactions if person_pattern.search(t.get("description", ""))]
     services_logger.debug(f"Результат функции person_to_person_search: {person_transactions}")
     return json.dumps(person_transactions)

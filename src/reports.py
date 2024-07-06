@@ -1,8 +1,9 @@
 import json
 import logging
 from datetime import datetime, timedelta
-import pandas as pd
 from typing import Any, Dict
+
+import pandas as pd
 
 # --- Логирование модуля reports ---
 reports_logger = logging.getLogger("reports")
@@ -31,20 +32,19 @@ def category_expenses_report(df: pd.DataFrame, category: str, start_date: str) -
     :return: JSON-ответ
     """
     reports_logger.debug(
-        f"Запуск функции category_expenses_report с параметрами: category={category}, start_date={start_date}")
+        f"Запуск функции category_expenses_report с параметрами: category={category}, start_date={start_date}"
+    )
 
-    start_date = datetime.strptime(start_date, '%Y-%m-%d')
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
     end_date = start_date + timedelta(days=90)
 
-    filtered_df = df[(df['category'] == category) &
-                     (df['date'] >= start_date) &
-                     (df['date'] <= end_date)]
+    filtered_df = df[(df["category"] == category) & (df["date"] >= start_date) & (df["date"] <= end_date)]
 
-    total_expenses = filtered_df['amount'].sum()
+    total_expenses = filtered_df["amount"].sum()
     result = {
         "category": category,
         "total_expenses": total_expenses,
-        "period": f"{start_date.date()} to {end_date.date()}"
+        "period": f"{start_date.date()} to {end_date.date()}",
     }
 
     reports_logger.debug(f"Результат функции category_expenses_report: {result}")
@@ -62,15 +62,13 @@ def weekday_expenses_report(df: pd.DataFrame, start_date: str = None) -> str:
     reports_logger.debug(f"Запуск функции weekday_expenses_report с параметром start_date={start_date}")
 
     if start_date:
-        start_date = datetime.strptime(start_date, '%Y-%m-%d')
-        df = df[df['date'] >= start_date]
+        start_date = datetime.strptime(start_date, "%Y-%m-%d")
+        df = df[df["date"] >= start_date]
 
-    df['weekday'] = df['date'].dt.day_name()
-    expenses_by_weekday = df.groupby('weekday')['amount'].sum().to_dict()
+    df["weekday"] = df["date"].dt.day_name()
+    expenses_by_weekday = df.groupby("weekday")["amount"].sum().to_dict()
 
-    result = {
-        "expenses_by_weekday": expenses_by_weekday
-    }
+    result = {"expenses_by_weekday": expenses_by_weekday}
 
     reports_logger.debug(f"Результат функции weekday_expenses_report: {result}")
     return json.dumps(result)
@@ -86,20 +84,19 @@ def weekday_vs_weekend_expenses_report(df: pd.DataFrame, start_date: str) -> str
     """
     reports_logger.debug(f"Запуск функции weekday_vs_weekend_expenses_report с параметром start_date={start_date}")
 
-    start_date = datetime.strptime(start_date, '%Y-%m-%d')
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
     end_date = start_date + timedelta(days=90)
 
-    filtered_df = df[(df['date'] >= start_date) &
-                     (df['date'] <= end_date)]
+    filtered_df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
 
-    filtered_df['is_weekend'] = filtered_df['date'].dt.weekday >= 5
-    weekend_expenses = filtered_df[filtered_df['is_weekend']]['amount'].sum()
-    weekday_expenses = filtered_df[~filtered_df['is_weekend']]['amount'].sum()
+    filtered_df["is_weekend"] = filtered_df["date"].dt.weekday >= 5
+    weekend_expenses = filtered_df[filtered_df["is_weekend"]]["amount"].sum()
+    weekday_expenses = filtered_df[~filtered_df["is_weekend"]]["amount"].sum()
 
     result = {
         "weekday_expenses": weekday_expenses,
         "weekend_expenses": weekend_expenses,
-        "period": f"{start_date.date()} to {end_date.date()}"
+        "period": f"{start_date.date()} to {end_date.date()}",
     }
 
     reports_logger.debug(f"Результат функции weekday_vs_weekend_expenses_report: {result}")

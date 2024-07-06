@@ -1,9 +1,10 @@
 import json
-import pandas as pd
-import requests
 import logging
 from datetime import datetime
 from typing import Any, Dict, List
+
+import pandas as pd
+import requests
 
 utils_logger = logging.getLogger("utils")
 utils_logger.setLevel(logging.DEBUG)
