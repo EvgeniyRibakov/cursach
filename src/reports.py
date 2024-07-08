@@ -1,7 +1,6 @@
 import json
 import logging
 from datetime import datetime, timedelta
-from typing import Any, Dict
 
 import pandas as pd
 
@@ -23,14 +22,6 @@ reports_logger.addHandler(reports_file_handler)
 
 
 def category_expenses_report(df: pd.DataFrame, category: str, start_date: str) -> str:
-    """
-    Функция для получения отчета «Траты по категории».
-
-    :param df: DataFrame с транзакциями
-    :param category: Категория расходов
-    :param start_date: Дата отсчета трехмесячного периода в формате 'YYYY-MM-DD'
-    :return: JSON-ответ
-    """
     reports_logger.debug(
         f"Запуск функции category_expenses_report с параметрами: category={category}, start_date={start_date}"
     )
@@ -40,7 +31,7 @@ def category_expenses_report(df: pd.DataFrame, category: str, start_date: str) -
 
     filtered_df = df[(df["category"] == category) & (df["date"] >= start_date) & (df["date"] <= end_date)]
 
-    total_expenses = filtered_df["amount"].sum()
+    total_expenses = filtered_df["amount"].sum().item()  # Используйте .item() для преобразования в int
     result = {
         "category": category,
         "total_expenses": total_expenses,
@@ -75,13 +66,6 @@ def weekday_expenses_report(df: pd.DataFrame, start_date: str = None) -> str:
 
 
 def weekday_vs_weekend_expenses_report(df: pd.DataFrame, start_date: str) -> str:
-    """
-    Функция для получения отчета «Траты в рабочий/выходной день».
-
-    :param df: DataFrame с транзакциями
-    :param start_date: Дата отсчета трехмесячного периода в формате 'YYYY-MM-DD'
-    :return: JSON-ответ
-    """
     reports_logger.debug(f"Запуск функции weekday_vs_weekend_expenses_report с параметром start_date={start_date}")
 
     start_date = datetime.strptime(start_date, "%Y-%m-%d")
@@ -90,8 +74,12 @@ def weekday_vs_weekend_expenses_report(df: pd.DataFrame, start_date: str) -> str
     filtered_df = df[(df["date"] >= start_date) & (df["date"] <= end_date)]
 
     filtered_df["is_weekend"] = filtered_df["date"].dt.weekday >= 5
-    weekend_expenses = filtered_df[filtered_df["is_weekend"]]["amount"].sum()
-    weekday_expenses = filtered_df[~filtered_df["is_weekend"]]["amount"].sum()
+    weekend_expenses = (
+        filtered_df[filtered_df["is_weekend"]]["amount"].sum().item()
+    )  # Используйте .item() для преобразования в int
+    weekday_expenses = (
+        filtered_df[~filtered_df["is_weekend"]]["amount"].sum().item()
+    )  # Используйте .item() для преобразования в int
 
     result = {
         "weekday_expenses": weekday_expenses,

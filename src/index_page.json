@@ -2,29 +2,39 @@
     "greeting": "Добрый день!",
     "cards": [
         {
-            "last_digits": "4556",
-            "total_spent": 1432768.5999999996,
-            "cashback": 2900.0
+            "last_digits": "7197",
+            "total_spent": 2389918.4999999865,
+            "cashback": 23899.184999999867
         },
         {
-            "last_digits": "7197",
-            "total_spent": 1432649.8999999962,
-            "cashback": 27568.0
+            "last_digits": "5091",
+            "total_spent": 17367.399999999998,
+            "cashback": 173.67399999999998
+        },
+        {
+            "last_digits": "4556",
+            "total_spent": 1768837.500000001,
+            "cashback": 17688.37500000001
         },
         {
             "last_digits": "1112",
-            "total_spent": 45207.0,
-            "cashback": 0.0
+            "total_spent": 46207.0,
+            "cashback": 462.07
+        },
+        {
+            "last_digits": "5507",
+            "total_spent": 84000.0,
+            "cashback": 840.0
         },
         {
             "last_digits": "6002",
             "total_spent": 69200.0,
-            "cashback": 0.0
+            "cashback": 692.0
         },
         {
             "last_digits": "5441",
             "total_spent": 470854.69999999995,
-            "cashback": 0.0
+            "cashback": 4708.547
         }
     ]
 }
