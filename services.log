@@ -1,0 +1,304 @@
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 21:51:21,112 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 21:51:21,112 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 21:59:08,983 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 21:59:08,983 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 21:59:08,983 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 21:59:08,983 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 21:59:09,000 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 21:59:09,000 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 21:59:09,000 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 21:59:09,000 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 21:59:09,000 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 21:59:09,000 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 21:59:09,000 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 21:59:09,000 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:09:23,027 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:09:23,027 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:11:08,789 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:11:08,789 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:14:47,592 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:14:47,592 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:14:47,607 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:14:47,607 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:14:47,607 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:14:47,607 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:14:47,607 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:14:47,607 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:14:47,607 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:14:47,607 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:14:47,607 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:14:47,607 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:19:37,477 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:19:37,477 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:23:11,248 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:23:11,248 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:40:37,245 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:40:37,246 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:40:37,248 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:40:37,248 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:40:37,250 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:40:37,250 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:40:37,252 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:40:37,252 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:40:37,254 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:40:37,254 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:40:37,256 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:40:37,257 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:41:20,388 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:41:20,388 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:41:55,330 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:41:55,330 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:42:08,988 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:42:08,988 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:42:09,000 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:42:09,000 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:42:09,000 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:42:09,000 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:42:09,000 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:42:09,000 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:42:09,000 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:42:09,000 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:42:09,000 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:42:09,000 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:44:39,767 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:44:39,767 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:44:50,069 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:44:50,085 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:44:50,085 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:44:50,085 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:44:50,085 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:44:50,085 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:44:50,085 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 22:46:37,122 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 22:46:37,122 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:41:07,623 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:41:07,623 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:41:29,313 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:41:29,313 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:46:42,989 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:46:42,989 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:48:27,447 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:48:27,447 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:48:27,462 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:48:27,462 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:48:27,462 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:48:27,462 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:48:27,462 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:48:27,462 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:48:27,462 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:48:27,462 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:48:27,462 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:48:27,462 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:53:45,462 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:53:45,462 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:53:45,462 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:53:45,462 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:53:45,462 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:53:45,462 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:53:45,462 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:53:45,462 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:53:45,478 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:53:45,478 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:53:45,478 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:53:45,478 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-08 23:58:00,358 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-08 23:58:00,358 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-08 23:58:00,358 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-08 23:58:00,358 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-08 23:58:00,358 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-08 23:58:00,358 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-08 23:58:00,358 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-08 23:58:00,358 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:58:00,358 - services - DEBUG - Запуск функции phone_number_search
+2024-07-08 23:58:00,358 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-08 23:58:00,374 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-08 23:58:00,374 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:00:25,118 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:00:25,118 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:00:25,118 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:00:25,118 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:00:25,118 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:00:25,118 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:00:25,118 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:00:25,118 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:00:25,134 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-09 00:00:25,134 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-09 00:00:25,134 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-09 00:00:25,134 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-09 00:00:25,134 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-09 00:00:25,134 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-09 00:00:25,134 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-09 00:00:25,134 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:05:05,543 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:05:05,543 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:05:05,543 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:05:05,543 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-09 00:05:05,558 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-09 00:05:05,558 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:08:01,410 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:08:01,410 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-09 00:08:01,425 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-09 00:08:01,425 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:11:47,220 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:11:47,220 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:11:47,220 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:11:47,220 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции phone_number_search
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции phone_number_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции person_to_person_search
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции person_to_person_search: [{'date': '2024-07-10', 'amount': 200, 'category': 'entertainment', 'description': 'перевод физическому лицу'}]
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции beneficial_cashback_categories с параметрами: year=2024, month=7
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции beneficial_cashback_categories: {'year': 2024, 'month': 7, 'categories': ['category1', 'category2', 'category3']}
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции invest_piggy_bank с параметрами: month=7, rounding_limit=10.0
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции invest_piggy_bank: {'month': 7, 'rounding_limit': 10.0, 'saved_amount': 1234.56}
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции simple_search с параметром: query=покупка
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-08', 'amount': 100, 'category': 'food', 'description': 'покупка в магазине'}]
+2024-07-09 00:11:47,225 - services - DEBUG - Запуск функции simple_search с параметром: query=такси
+2024-07-09 00:11:47,225 - services - DEBUG - Результат функции simple_search: [{'date': '2024-07-09', 'amount': 150, 'category': 'transport', 'description': '+1234567890 такси'}]
