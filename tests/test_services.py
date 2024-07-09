@@ -14,7 +14,6 @@ def mock_transactions() -> List[Dict[str, Any]]:
         {"description": "Оплата услуг +79991234567", "amount": 1500},
         {"description": "Перевод физическому лицу", "amount": 3000},
         {"description": "Покупка в магазине", "amount": 500},
-        # Добавьте больше транзакций для тестирования различных сценариев
     ]
 
 
