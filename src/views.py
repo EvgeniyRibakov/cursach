@@ -1,16 +1,22 @@
 import json
 import logging
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Callable, Dict, List, Tuple
 
 
 # Локальный импорт для предотвращения циклических импортов
-def get_utils():
+def get_utils() -> Tuple[Callable, Callable, Callable]:
+    """
+    Импортирует и возвращает функции из модуля utils.
+
+    :return: Кортеж функций (read_xlsx, welcome_message, write_json).
+    """
     from src.utils import read_xlsx, welcome_message, write_json
 
     return read_xlsx, welcome_message, write_json
 
 
+# Получение функций из utils
 read_xlsx, welcome_message, write_json = get_utils()
 
 logger = logging.getLogger(__name__)
@@ -22,6 +28,7 @@ logger.addHandler(handler)
 
 
 def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Работа с данными карты"""
     card_data = {}
 
     for operation in operations:
@@ -53,30 +60,37 @@ def card_data(operations: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 def cashback(total_sum: int) -> int:
+    """Считаем кешбек"""
     result_cashback = total_sum // 100
     logger.info("Успешно! Результат - %s" % result_cashback)
     return result_cashback
 
 
 def calculate_cashback(cards: list) -> list:
+    """Считаем кешбек"""
     for card in cards:
-        # Убедимся, что total_spent неотрицательный перед расчётом кэшбэка
-        if card['total_spent'] >= 0:
-            card['cashback'] = card['total_spent'] * 0.01
-            logger.info("Успешно! Результат - %s" % card['cashback'])
+        if card["total_spent"] >= 0:
+            card["cashback"] = card["total_spent"] * 0.01
+            logger.info("Успешно! Результат - %s" % card["cashback"])
         else:
-            # Если total_spent отрицательный, установим кэшбэк в 0
-            card['cashback'] = 0
+            card["cashback"] = 0
             logger.info("Отрицательная сумма трат, кэшбэк установлен в 0")
     return cards
 
 
-def filter_transactions_by_date(transactions, filter_date: datetime):
-    filtered_transactions = []
+def filter_transactions_by_date(transactions: List[Dict], filter_date: datetime) -> List[Dict]:
+    """
+    Фильтрует список транзакций по дате.
+
+    :param transactions: Список словарей, представляющих транзакции.
+    :param filter_date: Дата, до которой должны быть включены транзакции.
+    :return: Список отфильтрованных транзакций.
+    """
+    filtered_transactions: List[Dict] = []
     for transaction in transactions:
-        transaction_date_str = transaction.get("Дата операции")
+        transaction_date_str: Any | None = transaction.get("Дата операции")
         if transaction_date_str:
-            transaction_date = datetime.strptime(transaction_date_str, "%d.%m.%Y %H:%M:%S")
+            transaction_date: datetime = datetime.strptime(transaction_date_str, "%d.%m.%Y %H:%M:%S")
             logger.debug(f"Сравнение дат: транзакция {transaction_date}, фильтр {filter_date}")
             if transaction_date <= filter_date:
                 logger.debug(f"Добавление транзакции: {transaction}")
@@ -90,6 +104,7 @@ def filter_transactions_by_date(transactions, filter_date: datetime):
 
 
 def index_page(data_time: str, transactions: List[Dict[str, Any]]) -> str:
+    """главная функция  модуля, работает со всеми данными"""
     logger.info("Запуск главной страницы")
     greeting = welcome_message(data_time)
     logger.debug(f"Приветствие: {greeting}")
@@ -103,12 +118,12 @@ def index_page(data_time: str, transactions: List[Dict[str, Any]]) -> str:
 
     # Получение данных по картам и расчёт кэшбэка
     cards = card_data(filtered_transactions)
-    cards_with_cashback = calculate_cashback(cards)  # Предполагается, что функция calculate_cashback уже определена
+    cards_with_cashback = calculate_cashback(cards)
     logger.debug(f"Данные карт с кэшбэком: {cards_with_cashback}")
 
     # Создание результата
     result = {"greeting": greeting, "cards": cards_with_cashback}
-    write_json("index_page.json", result)  # Предполагается, что функция write_json уже определена
+    write_json("index_page.json", result)
 
     # Преобразование результата в JSON
     result_json = json.dumps(result, indent=2, ensure_ascii=False)
