@@ -1,7 +1,9 @@
-# Cursach Project
+# Проект 1. Приложение для анализа банковских операций
 
-Веб-сервисы
-Главная
+*Приложение для анализа транзакций, которые находятся в Excel-файле. Приложение генерирует JSON-данные для веб-страниц, формирует Excel-отчеты, а также предоставляет другие сервисы.*
+
+## Главная
+
 В JSON-файл выводятся данные в формате:
 
 Приветствие в формате — «Доброе утро» / «Добрый день» / «Добрый вечер» / «Доброй ночи» в зависимости от текущего
@@ -17,7 +19,7 @@
 Курс валют.
 Стоимость акций из S&P500.
 
-Сервисы
+## Сервисы
 Простой поиск
 Пользователь передает строку для поиска, возвращается JSON-ответ со всеми транзакциями, содержащими запрос в описании
 или категории.
@@ -59,10 +61,11 @@
 from src.utils import read_xlsx
 
 data = read_xlsx('path_to_your_file.xlsx')
-print(data)
+print(data)  
+```
 
-Фильтрация транзакций по дате
-
+### Фильтрация транзакций по дате
+```python
 from src.views import filter_transactions_by_date
 
 transactions = [
@@ -73,17 +76,17 @@ transactions = [
 date_str = "2018-01-04 15:00:00"
 filtered_transactions = filter_transactions_by_date(transactions, date_str)
 print(filtered_transactions)
-
-Расчет кешбэка
-
+```
+### Расчет кешбэка
+```python
 from src.views import cashback
 
 total_sum = 5000
 cashback_amount = cashback(total_sum)
 print(f"Total cashback: {cashback_amount}")
-
-Отчет по тратам по категории
-
+```
+### Отчет по тратам по категории
+```python
 from src.reports import category_expenses_report
 import pandas as pd
 
@@ -96,9 +99,9 @@ df['date'] = pd.to_datetime(df['date'])
 
 report = category_expenses_report(df, "food", "2023-01-01")
 print(report)
-
-Отчет по тратам по дням недели
-
+```
+### Отчет по тратам по дням недели
+```python
 from src.reports import weekday_expenses_report
 import pandas as pd
 
@@ -111,9 +114,9 @@ df['date'] = pd.to_datetime(df['date'])
 
 report = weekday_expenses_report(df)
 print(report)
-
-Отчет по тратам в рабочие и выходные дни
-
+```
+### Отчет по тратам в рабочие и выходные дни
+```python
 from src.reports import weekday_vs_weekend_expenses_report
 import pandas as pd
 
@@ -126,11 +129,15 @@ df['date'] = pd.to_datetime(df['date'])
 
 report = weekday_vs_weekend_expenses_report(df, "2023-01-01")
 print(report)
-
-Тестирование
+```
+### Тестирование
 
 Для запуска тестов выполните следующую команду:
-pytest
+*pytest*
 
-Лицензия
+###Команда проекта
+
+Евгений Рыбаков — Backend developer
+
+### Лицензия
 Этот проект лицензирован на условиях MIT License.
