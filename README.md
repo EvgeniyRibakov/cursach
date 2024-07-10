@@ -2,6 +2,27 @@
 
 *Приложение для анализа транзакций, которые находятся в Excel-файле. Приложение генерирует JSON-данные для веб-страниц, формирует Excel-отчеты, а также предоставляет другие сервисы.*
 
+## Установка
+
+Для установки и настройки окружения выполните следующие шаги:
+
+1. Клонируйте репозиторий:
+    ```sh
+    git clone https://github.com/EvgeniyRibakov/cursach
+    cd cursach
+    ```
+
+2. Создайте виртуальное окружение и активируйте его:
+    ```sh
+    python -m venv .venv
+    .venv\Scripts\activate  # Для Windows
+    ```
+
+3. Установите необходимые зависимости:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
 ## Главная
 
 В JSON-файл выводятся данные в формате:
@@ -24,67 +45,23 @@
 Пользователь передает строку для поиска, возвращается JSON-ответ со всеми транзакциями, содержащими запрос в описании
 или категории.
 
-## Описание
-
-Этот проект предназначен для обработки и фильтрации транзакций, включая функции загрузки данных из файлов Excel,
-фильтрации транзакций по дате и расчета кешбэка. Также проект предоставляет отчеты по тратам на основе категорий, дней
-недели и различия между рабочими и выходными днями.
-
-## Установка
-
-Для установки и настройки окружения выполните следующие шаги:
-
-1. Клонируйте репозиторий:
-    ```sh
-    git clone https://github.com/EvgeniyRibakov/cursach
-    cd cursach
-    ```
-
-2. Создайте виртуальное окружение и активируйте его:
-    ```sh
-    python -m venv .venv
-    .venv\Scripts\activate  # Для Windows
-    ```
-
-3. Установите необходимые зависимости:
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-## Использование
-
-Пример использования функций проекта:
-
-### Загрузка данных из файла Excel
-
 ```python
-from src.utils import read_xlsx
+def simple_search(query: str, transactions: List[Dict[str, Any]]) -> str:
+    """
+    Функция для сервиса «Простой поиск».
 
-data = read_xlsx('path_to_your_file.xlsx')
-print(data)  
+    :param query: Запрос для поиска
+    :param transactions: Список транзакций в формате списка словарей
+    :return: JSON-ответ
+    """
+    services_logger.debug(f"Запуск функции simple_search с параметром: query={query}")
+    filtered_transactions = [t for t in transactions if query.lower() in t.get("description", "").lower()]
+    services_logger.debug(f"Результат функции simple_search: {filtered_transactions}")
+    return json.dumps(filtered_transactions)
 ```
 
-### Фильтрация транзакций по дате
-```python
-from src.views import filter_transactions_by_date
+## Отчеты
 
-transactions = [
-    {'Дата операции': '05.01.2018 15:28:22'},
-    {'Дата операции': '04.01.2018 15:00:41'},
-    {'Дата операции': '01.01.2018 12:49:53'},
-]
-date_str = "2018-01-04 15:00:00"
-filtered_transactions = filter_transactions_by_date(transactions, date_str)
-print(filtered_transactions)
-```
-### Расчет кешбэка
-```python
-from src.views import cashback
-
-total_sum = 5000
-cashback_amount = cashback(total_sum)
-print(f"Total cashback: {cashback_amount}")
-```
 ### Отчет по тратам по категории
 ```python
 from src.reports import category_expenses_report
@@ -130,6 +107,35 @@ df['date'] = pd.to_datetime(df['date'])
 report = weekday_vs_weekend_expenses_report(df, "2023-01-01")
 print(report)
 ```
+
+## Использование
+
+Пример использования функций проекта:
+
+### Главная страница объединяющая весь код
+
+```python
+from src.utils import read_xlsx
+from src.views import index_page, logger
+
+
+def main() -> None:
+    """
+    Главная функция для запуска всей программы.
+    """
+    logger.info("Запуск веб-страниц")
+    transactions = read_xlsx("../data/operations.xls")
+    logger.debug(f"Загруженные транзакции: {transactions}")
+    user_data = input("Введите текущую дату и время в формате YYYY-MM-DD HH:MM:SS: ")
+    logger.debug(f"Введенные данные: {user_data}")
+    result = index_page(user_data, transactions)
+    print(result)
+
+
+if __name__ == "__main__":
+    main()
+```
+
 ### Тестирование
 
 Для запуска тестов выполните следующую команду:
