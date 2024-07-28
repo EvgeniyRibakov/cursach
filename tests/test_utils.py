@@ -58,8 +58,17 @@ def test_write_json(mock_open: Mock, test_file_data: Dict[str, Any]) -> None:
 # Тест для функции read_xlsx
 @patch("src.utils.pd.read_excel")
 def test_read_xlsx(mock_read_excel: Mock, test_file_data: List[Dict[str, Any]]) -> None:
-    mock_read_excel.return_value.to_dict.return_value = test_file_data
-    assert read_xlsx("fake_path.xlsx") == test_file_data
+    # Создаем DataFrame из тестовых данных
+    test_df = pd.DataFrame(test_file_data)
+
+    # Устанавливаем возвращаемое значение mock_read_excel
+    mock_read_excel.return_value = test_df
+
+    # Ожидаемый результат после чтения файла
+    expected_result = test_df.to_dict(orient="records")
+
+    # Вызываем функцию read_xlsx и сравниваем результат
+    assert read_xlsx("fake_path.xlsx").to_dict(orient="records") == expected_result
     mock_read_excel.assert_called_once_with("fake_path.xlsx")
 
 

@@ -1,56 +1,64 @@
 import json
-import logging
+import os
 from datetime import datetime
-from typing import Any, Dict, List, cast
+from typing import Any, Dict
+from venv import logger
 
 import pandas as pd
 import requests
+from dotenv import load_dotenv
 
-utils_logger = logging.getLogger("utils")
-utils_logger.setLevel(logging.DEBUG)
+from logging_config import get_logger
 
-utils_file_handler = logging.FileHandler("utils.log")
-utils_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-utils_file_handler.setFormatter(utils_formatter)
-utils_logger.addHandler(utils_file_handler)
+utils_logger = get_logger(__name__)
+
+# Загрузка переменных окружения из .env файла
+load_dotenv()
+
+API_KEY = os.getenv("api_key")
+if not API_KEY:
+    logger.error("API-ключ не установлен. Пожалуйста, установите ключ в переменной окружения 'api_key'.")
+    raise ValueError("API-ключ не установлен.")
 
 
-def fetch_data_from_api(api_url: str) -> List[Dict[str, Any]]:
-    """Обращение к api"""
+def fetch_data_from_api(api_url: str) -> Dict[str, Any]:
+    """Fetches data from the specified API URL."""
+    utils_logger.debug(f"Fetching data from API: {api_url}")
     try:
         response = requests.get(api_url)
         response.raise_for_status()
-        data = response.json()
-        return cast(List[Dict[str, Any]], data)
+        utils_logger.debug(f"API response: {response.json()}")
+        return response.json()
     except requests.RequestException as e:
-        utils_logger.error(f"Ошибка при обращении к API: {e}")
+        utils_logger.error(f"Error fetching data from API: {e}")
         raise
 
 
+def read_transactions_json(file_path: str) -> Any:
+    with open(file_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def dataframe_to_json(dataframe: pd.DataFrame) -> str:
-    """перевод данных в json"""
+    """Converts DataFrame to JSON string."""
     return dataframe.to_json(orient="records")
 
 
-def write_json(file_path: str, data: dict) -> None:
-    """запись в json файл"""
+def write_json(file_path: str, data: Dict) -> None:
+    """Writes data to a JSON file."""
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
 
-def read_xlsx(file_path: str) -> List[Dict[str, Any]]:
-    """Чтение хlsx файла"""
+def read_xlsx(file_path: str) -> pd.DataFrame:
+    """Reads an xlsx file into a DataFrame."""
     df = pd.read_excel(file_path)
-    transactions = df.to_dict(orient="records")
-    transactions_str_keys = [{str(k): v for k, v in transaction.items()} for transaction in transactions]
-
-    utils_logger.debug(f"Транзакции, считанные из файла {file_path}: {transactions_str_keys}")
-
-    return transactions_str_keys
+    df.columns = [str(col) for col in df.columns]
+    return df
 
 
 def welcome_message(data_time: str) -> str:
-    """Вывод приветствия в зависимости от времени"""
+    """Returns a greeting message based on the time of day."""
     data_time = data_time.strip()
     current_time = datetime.strptime(data_time, "%Y-%m-%d %H:%M:%S").time()
 

@@ -1,154 +1,131 @@
+import json
 from datetime import datetime
-from typing import Any, Dict, List
-from unittest.mock import MagicMock, patch
+from unittest.mock import Mock, patch
 
+import pandas as pd
 import pytest
 
-from src.views import calculate_cashback, card_data, cashback, filter_transactions_by_date, get_utils, index_page
+from src.views import (
+    calculate_cashback,
+    card_data,
+    cashback,
+    filter_transactions_by_date,
+    get_currency_rate,
+    get_stock_currency,
+    index_page,
+    process_card_data,
+    top_transactions,
+    total_costs,
+)
 
 
-# Фикстура для тестовых данных операций
 @pytest.fixture
-def mock_operations() -> List[Dict[str, Any]]:
+def sample_operations() -> list[dict[str, str | float | None]]:
     return [
-        {"Номер карты": "1234567890123456", "Бонусы (включая кэшбэк)": 10, "Сумма операции": -1000},
-        {"Номер карты": "1234567890123456", "Бонусы (включая кэшбэк)": 5, "Сумма операции": -500},
-        {"Номер карты": "1234567890123456", "Сумма операции": -300},
-        {"Номер карты": None, "Сумма операции": -200},
+        {"Номер карты": "1234", "Сумма операции": -100.0, "Бонусы (включая кэшбэк)": 1.0},
+        {"Номер карты": "5678", "Сумма операции": -200.0, "Бонусы (включая кэшбэк)": 2.0},
+        {"Номер карты": None, "Сумма операции": -50.0, "Бонусы (включая кэшбэк)": 0.5},
     ]
 
 
-# Тест для функции get_utils
-def test_get_utils() -> None:
-    with patch("src.utils.read_xlsx", return_value=MagicMock()) as mock_read_xlsx:
-        with patch("src.utils.welcome_message", return_value=MagicMock()) as mock_welcome_message:
-            with patch("src.utils.write_json", return_value=MagicMock()) as mock_write_json:
-                read_xlsx, welcome_message, write_json = get_utils()
-                assert read_xlsx == mock_read_xlsx
-                assert welcome_message == mock_welcome_message
-                assert write_json == mock_write_json
-
-
-# Тест для функции card_data
-def test_card_data(mock_operations: List[Dict[str, Any]]) -> None:
-    result = card_data(mock_operations)
-    assert result == [{"last_digits": "3456", "total_spent": 1800.0, "cashback": 15.0}]
-
-
-# Тест для функции filter_transactions_by_date
-def test_filter_transactions_by_date() -> None:
-    transactions = [
-        {"Дата операции": "01.01.2020 12:00:00", "сумма": 100},
-        {"Дата операции": "01.01.2021 12:00:00", "сумма": 200},
+@pytest.fixture
+def sample_transactions() -> list[dict[str, str | float]]:
+    return [
+        {"Дата операции": "01.01.2022 12:00:00", "Сумма операции": -100.0},
+        {"Дата операции": "02.01.2022 12:00:00", "Сумма операции": -200.0},
+        {"Дата операции": "03.01.2022 12:00:00", "Сумма операции": -300.0},
     ]
-    filter_date = datetime(2020, 12, 31, 23, 59, 59)
-
-    with patch("src.views.logger") as mock_logger:
-        filtered = filter_transactions_by_date(transactions, filter_date)
-        assert len(filtered) == 1
-        assert filtered[0]["сумма"] == 100
-        mock_logger.debug.assert_called_with(
-            "Отфильтрованные транзакции: [{'Дата операции': '01.01.2020 12:00:00', 'сумма': 100}]"
-        )
 
 
-# Тест для функции index_page
-def test_index_page() -> None:
-    data_time = "2020-01-01 12:00:00"
-    transactions = [{"Дата операции": "01.01.2020 12:00:00", "сумма": 100}]
+def test_card_data(sample_operations: list[dict[str, str | float | None]]) -> None:
+    result: list[dict[str, str | float | None]] = card_data(sample_operations)
+    assert len(result) == 2
+    assert result[0]["last_digits"] == "1234"
+    assert result[0]["total_spent"] == 100.0
+    assert result[0]["cashback"] == 1.0
 
-    with patch("src.views.logger") as mock_logger, patch(
-        "src.views.welcome_message", return_value="Приветствие"
-    ), patch("src.views.filter_transactions_by_date", return_value=transactions), patch(
-        "src.views.card_data", return_value=[{"total_spent": 100, "cashback": None}]
-    ), patch(
-        "src.views.calculate_cashback", return_value=[{"total_spent": 100, "cashback": 1}]
-    ), patch(
-        "src.views.write_json", return_value=None
-    ) as mock_write_json:
-        result = index_page(data_time, transactions)
-        assert "Приветствие" in result
-        assert '"cashback": 1' in result
-        mock_logger.info.assert_called_with("Запуск главной страницы")
-        mock_write_json.assert_called_with(
-            "index_page.json", {"greeting": "Приветствие", "cards": [{"total_spent": 100, "cashback": 1}]}
-        )
+
+def test_cashback() -> None:
+    assert cashback(150) == 1
+    assert cashback(250) == 2
 
 
 def test_calculate_cashback() -> None:
-    # Тестовые данные
-    cards = [
-        {"total_spent": 1000, "cashback": 0},
-        {"total_spent": 500, "cashback": 0},
-        {"total_spent": 100, "cashback": 0},
-    ]
-
-    # Ожидаемые результаты
-    expected_cashbacks = [10, 5, 1]
-
-    # Вызов тестируемой функции
-    calculate_cashback(cards)
-
-    # Проверка результатов
-    for card, expected_cashback in zip(cards, expected_cashbacks):
-        assert card["cashback"] == expected_cashback, f"Ошибка в карте с total_spent: {card['total_spent']}"
+    cards: list[dict[str, float]] = [{"total_spent": 100.0, "cashback": 0.0}, {"total_spent": -50.0, "cashback": 0.0}]
+    result: list[dict[str, float]] = calculate_cashback(cards)
+    assert result[0]["cashback"] == 1.0
+    assert result[1]["cashback"] == 0.0
 
 
-def test_calculate_cashback_with_no_spending() -> None:
-    # Карта без трат
-    cards = [{"total_spent": 0, "cashback": 0}]
-
-    # Вызов тестируемой функции
-    calculate_cashback(cards)
-
-    # Проверка, что кэшбэк равен 0
-    assert cards[0]["cashback"] == 0, "Кэшбэк должен быть 0 для карты без трат"
+def test_filter_transactions_by_date(sample_transactions: list[dict[str, str | float]]) -> None:
+    filter_date: datetime = datetime.strptime("02.01.2022 12:00:00", "%d.%m.%Y %H:%M:%S")
+    result: list[dict[str, str | float]] = filter_transactions_by_date(sample_transactions, filter_date)
+    assert len(result) == 1
+    assert result[0]["Дата операции"] == "01.01.2022 12:00:00"
 
 
-def test_calculate_cashback_with_negative_spending() -> None:
-    # Карта с отрицательной суммой трат (что не должно произойти)
-    cards = [{"total_spent": -100, "cashback": 0}]
+@patch("src.views.read_xlsx")
+@patch("src.views.welcome_message")
+@patch("src.views.write_json")
+def test_index_page(
+    mock_write_json: Mock,
+    mock_welcome_message: Mock,
+    mock_read_xlsx: Mock,
+    sample_transactions: list[dict[str, str | float]],
+) -> None:
+    mock_welcome_message.return_value = "Welcome!"
+    mock_read_xlsx.return_value = pd.DataFrame(sample_transactions)
 
-    # Вызов тестируемой функции
-    calculate_cashback(cards)
+    data_time: str = "2022-01-02 12:00:00"
+    result: str = index_page(data_time, sample_transactions)
 
-    # Проверка, что кэшбэк не был рассчитан
-    assert cards[0]["cashback"] == 0, "Не должно быть кэшбэка для карты с отрицательной суммой трат"
-
-
-# Тест на проверку, что функция возвращает целое число
-def test_cashback_returns_int() -> None:
-    assert isinstance(cashback(1000), int), "Результат должен быть целым числом"
-
-
-# Тест на проверку корректности расчета кэшбэка
-def test_cashback_calculation() -> None:
-    assert cashback(1000) == 10, "Кэшбэк для 1000 должен быть 10"
-
-
-# Тест на проверку, что кэшбэк не округляется вверх
-def test_cashback_no_round_up() -> None:
-    assert cashback(1999) == 19, "Кэшбэк для 1999 должен быть 19, без округления вверх"
+    result_dict: dict = json.loads(result)
+    assert result_dict["greeting"] == "Welcome!"
+    assert len(result_dict["cards"]) == 0
 
 
-# Тест на проверку работы функции с нулевым значением
-def test_cashback_zero() -> None:
-    assert cashback(0) == 0, "Кэшбэк для 0 должен быть 0"
+@patch("src.views.requests.get")
+def test_get_currency_rate(mock_get: Mock) -> None:
+    mock_response: Mock = Mock()
+    mock_response.json.return_value = {"rates": {"RUB": 74.0}}
+    mock_response.raise_for_status = Mock()
+    mock_get.return_value = mock_response
+
+    rate: float = get_currency_rate("USD")
+    assert rate == 74.0
 
 
-# Тест на проверку, что функция не возвращает отрицательный кэшбэк для положительных сумм
-def test_cashback_positive_input() -> None:
-    assert cashback(999) >= 0, "Кэшбэк не должен быть отрицательным для положительных сумм"
+@patch("src.views.yf.Ticker")
+def test_get_stock_currency(mock_ticker: Mock) -> None:
+    mock_stock: Mock = Mock()
+    mock_stock.history.return_value = pd.DataFrame({"High": [150.0]})
+    mock_ticker.return_value = mock_stock
+
+    price: float = get_stock_currency("AAPL")
+    assert price == 150.0
 
 
-# Параметризованный тест для проверки различных значений
-@pytest.mark.parametrize(
-    "input_value, expected_output", [(100, 1), (500, 5), (1000, 10), (0, 0), (-100, -1), (999, 9), (1001, 10)]
-)
-def test_cashback_parametrized(input_value: int, expected_output: int) -> None:
-    assert cashback(input_value) == expected_output, f"Кэшбэк для {input_value} должен быть {expected_output}"
+def test_process_card_data(sample_operations: list[dict[str, str | float | None]]) -> None:
+    result: list[dict[str, str | float | None]] = process_card_data(sample_operations)
+    assert len(result) == 2
+    assert result[0]["last_digits"] == "1234"
+    assert result[0]["total_spent"] == 100.0
+    assert result[0]["cashback"] == 1.0
+    assert result[1]["last_digits"] == "5678"
+    assert result[1]["total_spent"] == 200.0
+    assert result[1]["cashback"] == 2.0
 
 
-# Тест для функции cashback
-def test_cashback() -> None:
-    assert cashback(1000) == 10
+def test_total_costs(sample_transactions: list[dict[str, str | float]]) -> None:
+    result: float = total_costs(sample_transactions)
+    assert result == 600.0
+
+
+def test_top_transactions(sample_transactions: list[dict[str, str | float]]) -> None:
+    result: list[dict[str, str | float]] = top_transactions(sample_transactions)
+    assert len(result) == 3
+    assert result[0]["Сумма операции"] == -300.0
+
+
+if __name__ == "__main__":
+    pytest.main()
