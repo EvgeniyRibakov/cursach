@@ -1,18 +1,15 @@
-from src.utils import read_xlsx
-from src.views import index_page, logger
+from src.reports import main_reports
+from src.services import main_services
+from src.views import main_views
 
 
 def main() -> None:
     """
     Главная функция для запуска всей программы.
     """
-    logger.info("Запуск веб-страниц")
-    transactions = read_xlsx("../data/operations.xls")
-    logger.debug(f"Загруженные транзакции: {transactions}")
-    user_data = input("Введите текущую дату и время в формате YYYY-MM-DD HH:MM:SS: ")
-    logger.debug(f"Введенные данные: {user_data}")
-    result = index_page(user_data, transactions)
-    print(result)
+    main_views()
+    main_reports()
+    main_services()
 
 
 if __name__ == "__main__":

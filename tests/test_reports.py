@@ -17,9 +17,9 @@ logging.basicConfig(level=logging.DEBUG)
 @pytest.fixture
 def sample_df() -> pd.DataFrame:
     data = {
-        "date": [datetime(2020, 1, 1), datetime(2020, 1, 2), datetime(2020, 1, 3)],
-        "category": ["food", "transport", "food"],
-        "amount": [100, 50, 200],
+        "Дата платежа": [datetime(2020, 1, 1), datetime(2020, 1, 2), datetime(2020, 1, 3)],
+        "Категория": ["food", "transport", "food"],
+        "Сумма операции": [100, 50, 200],
     }
     return pd.DataFrame(data)
 

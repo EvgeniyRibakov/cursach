@@ -10,6 +10,11 @@ python = "^3.10"
 requests = "^2.31.0"
 python-dotenv = "^1.0.1"
 pandas = "^2.2.2"
+xlrd = "^2.0.1"
+yfinance = "^0.2.40"
+logger = "^1.4"
+datetime = "^5.5"
+pytest = "^8.3.2"
 
 [tool.poetry.group.masks.dependencies]
 flake8 = "^7.0.0"
